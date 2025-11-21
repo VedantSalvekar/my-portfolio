@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'work', label: 'Work' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'artworks', label: 'Artworks' },
-  { id: 'contact', label: 'Contact' },
+  { id: "home", label: "Home" },
+  { id: "work", label: "Work" },
+  { id: "projects", label: "Projects" },
+  { id: "artworks", label: "Artworks" },
+  { id: "contact", label: "Contact" },
 ];
 
 function Navbar() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
   const scrollToSection = (sectionId) => {
     setActiveSection(sectionId);
-    if (sectionId === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (sectionId === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -33,7 +33,7 @@ function Navbar() {
         });
       },
       {
-        rootMargin: '-50% 0px -50% 0px', 
+        rootMargin: "-50% 0px -50% 0px",
       }
     );
 
@@ -49,23 +49,18 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800/50">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-center md:justify-between items-center">
-          
-
-          <div className="flex space-x-2 md:space-x-6">
+          <div className="flex space-x-0 md:space-x-4">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`group relative px-4 py-2 rounded-lg transition-all duration-300
-                  ${activeSection === item.id 
-                    ? 'text-white' 
-                    : 'text-gray-400 '
+                  ${
+                    activeSection === item.id ? "text-white" : "text-gray-400 "
                   }`}
               >
-                
-                
                 <span className="relative font-medium">{item.label}</span>
 
                 {activeSection === item.id && (
@@ -81,4 +76,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

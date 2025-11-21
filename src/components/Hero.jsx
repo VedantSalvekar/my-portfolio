@@ -21,11 +21,11 @@ function Hero() {
 
   const downloadCV = () => {
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
-    
-    const link = document.createElement('a');
+
+    const link = document.createElement("a");
     link.href = downloadUrl;
-    link.download = 'Vedant_Salvekar_Resume.pdf';
-    link.target = '_blank';
+    link.download = "Vedant_Salvekar_Resume.pdf";
+    link.target = "_blank";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -40,15 +40,31 @@ function Hero() {
   ];
 
   const socialLinks = [
-    { name: "GitHub", icon: githubIcon, link: "https://github.com/VedantSalvekar" },
-    { name: "LinkedIn", icon: linkedinIcon, link: "https://www.linkedin.com/in/vedant-salvekar-7b4a5b211/" },
-    { name: "Email", icon: gmailIcon, link: "mailto:vedantsalvekar86@gmail.com" },
-    { name: "LeetCode", icon: leetcodeIcon, link: "https://leetcode.com/u/Vedant_1028/" },
+    {
+      name: "GitHub",
+      icon: githubIcon,
+      link: "https://github.com/VedantSalvekar",
+    },
+    {
+      name: "LinkedIn",
+      icon: linkedinIcon,
+      link: "https://www.linkedin.com/in/vedant-salvekar-7b4a5b211/",
+    },
+    {
+      name: "Email",
+      icon: gmailIcon,
+      link: "mailto:vedantsalvekar86@gmail.com",
+    },
+    {
+      name: "LeetCode",
+      icon: leetcodeIcon,
+      link: "https://leetcode.com/u/Vedant_1028/",
+    },
     { name: "Phone", icon: null, link: "tel:+353899444772" },
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-20 pb-20">
+    <section className="min-h-screen flex items-center justify-center px-5 pt-20 pb-20">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative flex items-center justify-center h-[600px]">
@@ -93,9 +109,15 @@ function Hero() {
 
               <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  Tech is art to me. I’m both an engineer and an artist, and I
-                  bring the same creative energy to writing code as I do to
-                  painting nature and portraits.{" "}
+                  I’m a software engineer and a traditional artist who loves
+                  building things that feel both functional and expressive. I
+                  enjoy working end-to-end, designing clean interfaces,
+                  architecting scalable systems, and bringing ideas to life.
+                </p>
+                <p>
+                  Outside of coding, I paint nature, portraits, and expressive
+                  pieces. Blending creativity with engineering helps me approach
+                  problems with both structure and imagination.
                 </p>
               </div>
             </div>
@@ -112,13 +134,13 @@ function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button
+              {/* <button
                 onClick={scrollToWork}
                 className="px-6 py-2 border border-gray-600 text-gray-300 text-sm
                          hover:border-gray-400 hover:text-white transition-all duration-300"
               >
                 View Work
-              </button>
+              </button> */}
               <button
                 onClick={downloadCV}
                 className="px-6 py-2 border border-gray-600 text-gray-300 text-sm
@@ -134,23 +156,29 @@ function Hero() {
                   key={social.name}
                   href={social.link}
                   target={social.link.startsWith("http") ? "_blank" : "_self"}
-                  rel={social.link.startsWith("http") ? "noopener noreferrer" : ""}
+                  rel={
+                    social.link.startsWith("http") ? "noopener noreferrer" : ""
+                  }
                   className="opacity-80 hover:opacity-100 transition-opacity duration-300"
                 >
                   {social.icon ? (
-                    <img src={social.icon} alt={social.name} className="w-6 h-6 " />
+                    <img
+                      src={social.icon}
+                      alt={social.name}
+                      className="w-6 h-6 "
+                    />
                   ) : (
-                    <svg 
-                      className="w-6 h-6 text-gray-400" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-6 h-6 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                       />
                     </svg>
                   )}
