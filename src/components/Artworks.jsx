@@ -27,7 +27,7 @@ function Artworks() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % artworks.length);
-    }, 3000); 
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [artworks.length]);
@@ -43,25 +43,25 @@ function Artworks() {
   const getPosition = (index) => {
     const diff = index - currentIndex;
     const total = artworks.length;
-    
+
     let position = diff;
     if (position > total / 2) position -= total;
     if (position < -total / 2) position += total;
-    
+
     return position;
   };
 
   return (
-    <section className="min-h-screen py-20 px-6 relative flex items-center justify-center">
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white">
-            My Artworks
+    <section className="py-16 md:py-20">
+      <div className="max-w-7xl mx-auto w-full px-6">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            <span style={{ color: "#64ffda" }}>/ </span>
+            <span style={{ color: "#ccd6f6" }}>artworks</span>
           </h2>
-         
         </div>
 
-        <div className="relative h-[600px] flex items-center justify-center mb-8 overflow-hidden">
+        <div className="relative h-[500px] md:h-[600px] flex items-center justify-center mb-8 overflow-hidden">
           <div className="relative w-full h-full flex items-center justify-center">
             {artworks.map((artwork, index) => {
               const position = getPosition(index);
@@ -97,14 +97,25 @@ function Artworks() {
         <div className="flex items-center justify-center gap-6">
           <button
             onClick={handlePrev}
-            className="w-12 h-12 border border-gray-700 hover:border-white flex items-center justify-center text-xl
-              text-white transition-all duration-300 hover:bg-white/10"
+            className="w-12 h-12 border flex items-center justify-center text-xl transition-all duration-300"
+            style={{ borderColor: "#233554", color: "#ccd6f6" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#64ffda";
+              e.currentTarget.style.backgroundColor = "#64ffda1a";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "#233554";
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
           >
             ←
           </button>
 
           <div className="text-center">
-            <div className="text-gray-400 font-mono text-sm mb-2">
+            <div
+              className="font-mono text-sm mb-2"
+              style={{ color: "#8892b0" }}
+            >
               {currentIndex + 1} / {artworks.length}
             </div>
             <div className="flex gap-2">
@@ -112,11 +123,22 @@ function Artworks() {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`h-2 transition-all duration-300 ${
-                    index === currentIndex
-                      ? "w-8 bg-white"
-                      : "w-2 bg-gray-700 hover:bg-gray-600"
-                  }`}
+                  className={`h-2 transition-all duration-300`}
+                  style={{
+                    width: index === currentIndex ? "32px" : "8px",
+                    backgroundColor:
+                      index === currentIndex ? "#64ffda" : "#233554",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (index !== currentIndex) {
+                      e.currentTarget.style.backgroundColor = "#8892b0";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (index !== currentIndex) {
+                      e.currentTarget.style.backgroundColor = "#233554";
+                    }
+                  }}
                 />
               ))}
             </div>
@@ -124,15 +146,19 @@ function Artworks() {
 
           <button
             onClick={handleNext}
-            className="w-12 h-12 border border-gray-700 hover:border-white flex items-center justify-center text-xl
-              text-white transition-all duration-300 hover:bg-white/10"
+            className="w-12 h-12 border flex items-center justify-center text-xl transition-all duration-300"
+            style={{ borderColor: "#233554", color: "#ccd6f6" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#64ffda";
+              e.currentTarget.style.backgroundColor = "#64ffda1a";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "#233554";
+              e.currentTarget.style.backgroundColor = "transparent";
+            }}
           >
             →
           </button>
-        </div>
-
-        <div className="text-center mt-6 text-gray-500 text-xs">
-          Auto-rotating every 3 seconds
         </div>
       </div>
     </section>

@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import CodeIcon from "@mui/icons-material/Code";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const navItems = [
   { id: "home", label: "Home" },
-  { id: "work", label: "Work" },
+  { id: "work", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "artworks", label: "Artworks" },
-  { id: "contact", label: "Contact" },
 ];
 
 function Navbar() {
@@ -48,26 +52,134 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800/50">
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex justify-center md:justify-between items-center">
-          <div className="flex space-x-0 md:space-x-4">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`group relative px-4 py-2 rounded-lg transition-all duration-300
-                  ${
-                    activeSection === item.id ? "text-white" : "text-gray-400 "
-                  }`}
-              >
-                <span className="relative font-medium">{item.label}</span>
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md "
+      style={{
+        backgroundColor: "rgba(2, 12, 27, 0.95)",
+        // borderColor: "#233554",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-8">
+            <div className="text-xl font-bold" style={{ color: "#ccd6f6" }}>
+              Vedant Salvekar
+            </div>
 
-                {activeSection === item.id && (
-                  <div className="absolute -bottom-[17px] left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-white"></div>
-                )}
-              </button>
-            ))}
+            <div className="hidden md:flex items-center gap-1 poi">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="relative px-4 py-2 transition-all duration-200 cursor-pointer"
+                  style={{
+                    color: activeSection === item.id ? "#64ffda" : "#ccd6f6",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeSection !== item.id) {
+                      e.currentTarget.style.color = "#64ffda";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== item.id) {
+                      e.currentTarget.style.color = "#ccd6f6";
+                    }
+                  }}
+                >
+                  <span className="relative font-medium text-sm">
+                    {item.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="mailto:vedantsalvekar86@gmail.com"
+              className="transition-all duration-200 p-2"
+              style={{ color: "#8892b0" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#64ffda";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#8892b0";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <EmailRoundedIcon style={{ fontSize: 20 }} />
+            </a>
+
+            <a
+              href="https://github.com/VedantSalvekar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-200 p-2"
+              style={{ color: "#8892b0" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#64ffda";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#8892b0";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <GitHubIcon style={{ fontSize: 19 }} />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/vedant-salvekar-7b4a5b211/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-200 p-2"
+              style={{ color: "#8892b0" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#64ffda";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#8892b0";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <LinkedInIcon style={{ fontSize: 21 }} />
+            </a>
+
+            {/* <a
+              href="https://leetcode.com/u/Vedant_1028/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-200 p-2"
+              style={{ color: "#8892b0" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#64ffda";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#8892b0";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <CodeIcon style={{ fontSize: 20 }} />
+            </a> */}
+
+            <a
+              href="tel:+353899444772"
+              className="transition-all duration-200 p-2"
+              style={{ color: "#8892b0" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#64ffda";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#8892b0";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <PhoneIcon style={{ fontSize: 20 }} />
+            </a>
           </div>
         </div>
       </div>

@@ -4,21 +4,12 @@ import nodejsIcon from "../assets/nodejs-2.svg";
 import flutterIcon from "../assets/flutter.svg";
 import firebaseIcon from "../assets/firebase-1.svg";
 import javascriptIcon from "../assets/javascript-2.svg";
-import githubIcon from "../assets/github-icon-2.svg";
-import linkedinIcon from "../assets/linkedin-icon-2.svg";
-import gmailIcon from "../assets/gmail-icon.svg";
-import leetcodeIcon from "../assets/leetcode-1.svg";
+import awsIcon from "../assets/aws-2.svg";
+import dartIcon from "../assets/dart.svg";
 
 const CV_DRIVE_URL = "1s15bA8xrhXCAv9WFcgKkx1kDjzf5RG5i";
 
 function Hero() {
-  const scrollToWork = () => {
-    const element = document.getElementById("work");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const downloadCV = () => {
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
 
@@ -36,56 +27,34 @@ function Hero() {
     { name: "NodeJs", icon: nodejsIcon },
     { name: "JavaScript", icon: javascriptIcon },
     { name: "Flutter", icon: flutterIcon },
+    { name: "Dart", icon: dartIcon },
     { name: "Firebase", icon: firebaseIcon },
-  ];
-
-  const socialLinks = [
-    {
-      name: "GitHub",
-      icon: githubIcon,
-      link: "https://github.com/VedantSalvekar",
-    },
-    {
-      name: "LinkedIn",
-      icon: linkedinIcon,
-      link: "https://www.linkedin.com/in/vedant-salvekar-7b4a5b211/",
-    },
-    {
-      name: "Email",
-      icon: gmailIcon,
-      link: "mailto:vedantsalvekar86@gmail.com",
-    },
-    {
-      name: "LeetCode",
-      icon: leetcodeIcon,
-      link: "https://leetcode.com/u/Vedant_1028/",
-    },
-    { name: "Phone", icon: null, link: "tel:+353899444772" },
+    { name: "AWS", icon: awsIcon },
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-5 pt-20 pb-20">
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="min-h-screen flex items-center justify-center px-5 pt-24 pb-12">
+      <div className="max-w-6xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative flex items-center justify-center h-[600px]">
-            <div className="absolute left-[-17px] md:left-[-22px] bottom-66 z-0">
+            <div className="absolute left-[-15px] md:left-[-51px] bottom-67 md:bottom-66 z-0">
               <h2
                 className="text-4xl md:text-6xl font-bold"
                 style={{
-                  color: "#ffffff",
-                  textShadow: "2px 2px 8px rgba(0,0,0,0.5)",
+                  color: "#ccd6f6",
+                  textShadow: "2px 2px 8px rgba(2,12,27,0.8)",
                 }}
               >
                 Developer
               </h2>
             </div>
 
-            <div className="absolute right-[31px] md:right-[71px] bottom-66 z-0">
+            <div className="absolute right-[20px] md:right-[55px] bottom-67 md:bottom-66 z-0">
               <h2
                 className="text-4xl md:text-6xl font-bold"
                 style={{
-                  color: "#ffffff",
-                  textShadow: "2px 2px 8px rgba(0,0,0,0.5)",
+                  color: "#ccd6f6",
+                  textShadow: "2px 2px 8px rgba(2,12,27,0.8)",
                 }}
               >
                 Artist
@@ -103,16 +72,27 @@ function Hero() {
 
           <div className="text-center md:text-left space-y-8">
             <div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-                Vedant Salvekar
+              <h1 className="text-4xl md:text-6xl font-bold mb-2">
+                <span style={{ color: "#ccd6f6" }}>hi, </span>
+                <span style={{ color: "#64ffda" }}>Vedant</span>
+                <span style={{ color: "#ccd6f6" }}> here.</span>
               </h1>
+              <h2
+                className="text-2xl md:text-4xl font-bold mb-6"
+                style={{ color: "#8892b0" }}
+              >
+                I create stuff sometimes.
+              </h2>
 
-              <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+              <div
+                className="space-y-6 text-lg leading-relaxed"
+                style={{ color: "#8892b0" }}
+              >
                 <p>
-                  I’m a software engineer and a traditional artist who loves
-                  building things that feel both functional and expressive. I
-                  enjoy working end-to-end, designing clean interfaces,
-                  architecting scalable systems, and bringing ideas to life.
+                  I'm a software engineer and artist who loves building things
+                  that feel both functional and expressive. I enjoy working
+                  end-to-end, designing clean interfaces, architecting scalable
+                  systems, and bringing ideas to life.
                 </p>
                 <p>
                   Outside of coding, I paint nature, portraits, and expressive
@@ -126,31 +106,34 @@ function Hero() {
               {skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="opacity-60 hover:opacity-100 transition-opacity duration-300"
                 >
-                  <img src={skill.icon} alt={skill.name} className="w-6 h-6 " />
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="w-6 h-6 grayscale"
+                  />
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              {/* <button
-                onClick={scrollToWork}
-                className="px-6 py-2 border border-gray-600 text-gray-300 text-sm
-                         hover:border-gray-400 hover:text-white transition-all duration-300"
-              >
-                View Work
-              </button> */}
               <button
                 onClick={downloadCV}
-                className="px-6 py-2 border border-gray-600 text-gray-300 text-sm
-                         hover:border-gray-400 hover:text-white transition-all duration-300"
+                className="px-6 py-2 border text-sm transition-all duration-300 cursor-pointer"
+                style={{ borderColor: "#64ffda", color: "#64ffda" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#64ffda1a";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                }}
               >
                 Download CV
               </button>
             </div>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-3">
+            {/* <div className="flex flex-wrap justify-center md:justify-start gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -159,20 +142,30 @@ function Hero() {
                   rel={
                     social.link.startsWith("http") ? "noopener noreferrer" : ""
                   }
-                  className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="transition-all duration-300"
+                  style={{ filter: "grayscale(100%) brightness(0.7)" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter =
+                      "grayscale(0%) brightness(1) sepia(1) hue-rotate(140deg) saturate(3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter =
+                      "grayscale(100%) brightness(0.7)";
+                  }}
                 >
                   {social.icon ? (
                     <img
                       src={social.icon}
                       alt={social.name}
-                      className="w-6 h-6 "
+                      className="w-6 h-6"
                     />
                   ) : (
                     <svg
-                      className="w-6 h-6 text-gray-400"
+                      className="w-6 h-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      style={{ color: "#8892b0" }}
                     >
                       <path
                         strokeLinecap="round"
@@ -184,7 +177,7 @@ function Hero() {
                   )}
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

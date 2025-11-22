@@ -1,27 +1,42 @@
 @import "tailwindcss";
 
+:root {
+  --dark-navy: #020c1b;
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: #020c1bb3;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --green-bright: #64ffda;
+  --green-tint: #64ffda1a;
+}
+
 @layer base {
   body {
-    @apply bg-black text-white;
+    background-color: var(--dark-navy);
+    color: var(--slate);
   }
 }
 
-/* Custom scrollbar with black and white */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--navy);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fff;
+  background: var(--lightest-navy);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d1d5db;
+  background: var(--slate);
 }
 
 /* Smooth scrolling */
@@ -29,10 +44,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Selection styling with white accent */
+/* Selection styling */
 ::selection {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: white;
+  background-color: var(--green-tint);
+  color: var(--green-bright);
 }
 
 /* Glow effect utilities */

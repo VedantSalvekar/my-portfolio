@@ -9,31 +9,13 @@ import gitTogether from "../assets/projects/gitTogether.png";
 function Projects() {
   const projects = [
     {
-      title: "AllerTeens",
-      subtitle: "Allergy Self-Management Mobile App",
-      description:
-        "Cross-platform mobile app developed in collaboration with UCC School of Nursing & Midwifery and CUH Paediatric Allergy Unit to support adolescents transitioning to self-management of severe food allergies.",
-      tech: "Flutter, Dart, Firebase, Firestore, Google Cloud Functions, OpenAI GPT-3.5",
-      github: "#",
-      screenshot: allerteens,
-    },
-    {
       title: "GitTogether",
       subtitle: "Developer Networking Platform",
       description:
         "Full-featured social networking web application enabling developers to connect professionally with intuitive profile management and connection requests.",
-      tech: "React, Vite, Redux Toolkit, Tailwind CSS, DaisyUI, React Router",
+      tech: "React, Node.js (Socket.io), MongoDB, Tailwind CSS",
       github: "#",
       screenshot: gitTogether,
-    },
-    {
-      title: "Netflix GPT",
-      subtitle: "AI-Powered Movie Recommendation Platform",
-      description:
-        "React web application replicating Netflix interface with integrated OpenAI-powered movie recommendations, combining real-time movie data with AI-driven personalized suggestions.",
-      tech: "React, OpenAI API, JavaScript, CSS",
-      github: "https://github.com/VedantSalvekar/netflix-gpt",
-      screenshot: netflixGpt,
     },
     {
       title: "Cosmic Hub",
@@ -43,6 +25,25 @@ function Projects() {
       tech: "JavaScript, React, Node.js, MongoDB",
       github: "https://github.com/VedantSalvekar/cosmic-hub",
       screenshot: cosmicHub,
+    },
+
+    {
+      title: "AllerTeens",
+      subtitle: "Allergy Self-Management Mobile App",
+      description:
+        "Cross-platform mobile app developed in collaboration with UCC School of Nursing & Midwifery and CUH Paediatric Allergy Unit to support adolescents transitioning to self-management of severe food allergies.",
+      tech: "Flutter, Dart, Firebase, Firestore, Google Cloud Functions, OpenAI GPT-3.5",
+      github: "#",
+      screenshot: allerteens,
+    },
+    {
+      title: "Netflix GPT",
+      subtitle: "AI-Powered Movie Recommendation Platform",
+      description:
+        "React web application replicating Netflix interface with integrated OpenAI-powered movie recommendations, combining real-time movie data with AI-driven personalized suggestions.",
+      tech: "React, OpenAI API, JavaScript, CSS",
+      github: "https://github.com/VedantSalvekar/netflix-gpt",
+      screenshot: netflixGpt,
     },
     {
       title: "F1 Live Sim",
@@ -56,17 +57,18 @@ function Projects() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="py-16 md:py-20">
+      <div className="max-w-7xl mx-auto w-full px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            Projects
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+            <span style={{ color: "#64ffda" }}>/ </span>
+            <span style={{ color: "#ccd6f6" }}>projects</span>
           </h2>
         </motion.div>
 
@@ -82,9 +84,19 @@ function Projects() {
                 delay: (index % 3) * 0.1,
                 ease: "easeOut",
               }}
-              className="group relative overflow-hidden border border-gray-800 hover:border-white transition-all duration-300"
+              className="group relative overflow-hidden border transition-all duration-300"
+              style={{ borderColor: "#233554" }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.borderColor = "#64ffda")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.borderColor = "#233554")
+              }
             >
-              <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
+              <div
+                className="aspect-video flex items-center justify-center relative"
+                style={{ backgroundColor: "#0a192f" }}
+              >
                 {project.screenshot ? (
                   <img
                     src={project.screenshot}
@@ -94,9 +106,9 @@ function Projects() {
                 ) : (
                   <div className="text-center">
                     <svg
-                      className="w-16 h-16 mx-auto text-gray-700"
+                      className="w-16 h-16 mx-auto"
                       fill="none"
-                      stroke="currentColor"
+                      stroke="#233554"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -110,18 +122,31 @@ function Projects() {
                 )}
 
                 {/* Hover overlay - slides from bottom, 3/4 height */}
-                <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-black/95 translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex flex-col p-4 overflow-hidden">
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-3/4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex flex-col p-4 overflow-hidden"
+                  style={{ backgroundColor: "rgba(10, 25, 47, 0.98)" }}
+                >
                   <div className="flex-1 overflow-y-auto project-overlay">
                     {/* Title with GitHub icon */}
                     <div className="flex items-center justify-start mb-1.5">
-                      <h3 className="text-lg font-bold text-white">
+                      <h3
+                        className="text-lg font-bold"
+                        style={{ color: "#ccd6f6" }}
+                      >
                         {project.title}
                       </h3>
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-7 h-7 border border-gray-700 hover:border-white transition-colors flex items-center justify-center flex-shrink-0 ml-2"
+                        className="w-7 h-7 border transition-colors flex items-center justify-center flex-shrink-0 ml-2"
+                        style={{ borderColor: "#233554" }}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.borderColor = "#64ffda")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.borderColor = "#233554")
+                        }
                         onClick={(e) => e.stopPropagation()}
                       >
                         <img
@@ -131,18 +156,29 @@ function Projects() {
                         />
                       </a>
                     </div>
-                    
-                    {/* <p className="text-gray-400 text-xs mb-1.5">
-                      {project.subtitle}
-                    </p> */}
-                    <p className="text-gray-300 text-sm leading-snug mb-3">
+
+                    <p
+                      className="text-sm leading-snug mb-3"
+                      style={{ color: "#8892b0" }}
+                    >
                       {project.description}
                     </p>
-                    <div className="border-t border-gray-800 pt-2">
-                      <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">
+                    <div
+                      className="border-t pt-2"
+                      style={{ borderColor: "#233554" }}
+                    >
+                      <p
+                        className="text-[10px] uppercase tracking-wider mb-1"
+                        style={{ color: "#64ffda" }}
+                      >
                         Tech Stack
                       </p>
-                      <p className="text-xs text-gray-400 leading-tight">{project.tech}</p>
+                      <p
+                        className="text-xs leading-tight"
+                        style={{ color: "#8892b0" }}
+                      >
+                        {project.tech}
+                      </p>
                     </div>
                   </div>
                 </div>
