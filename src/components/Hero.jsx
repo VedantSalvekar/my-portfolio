@@ -7,8 +7,8 @@ import javascriptIcon from "../assets/javascript-2.svg";
 import awsIcon from "../assets/aws-2.svg";
 import dartIcon from "../assets/dart.svg";
 
-const CV_DRIVE_URL = "1s15bA8xrhXCAv9WFcgKkx1kDjzf5RG5i";
-
+const CV_DRIVE_URL = "1oDyM9zKtaMCZajGuggcNfbFykI05yb1I";
+//https://drive.google.com/file/d/1oDyM9zKtaMCZajGuggcNfbFykI05yb1I/view?usp=sharing
 function Hero() {
   const downloadCV = () => {
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
