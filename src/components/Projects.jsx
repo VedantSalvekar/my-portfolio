@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import githubIcon from "../assets/github-icon-2.svg";
+import shaastraAi from "../assets/projects/shaastra_ai.png";
 import cosmicHub from "../assets/projects/cosmic-hub.png";
 import netflixGpt from "../assets/projects/netflix-gpt.png";
 import f1LiveSim from "../assets/projects/f1_live_sim.png";
@@ -8,6 +9,15 @@ import gitTogether from "../assets/projects/gitTogether.png";
 
 function Projects() {
   const projects = [
+    {
+      title: "Shaastra AI",
+      subtitle: "AI-Powered Legal & Immigration Assistant (RAG + Agentic AI)",
+      description:
+        "RAG-powered assistant for Irish immigration and tax docs: ingest PDFs into Qdrant alongside official legal sources, LangGraph agents for safe, citation-backed answers, and a Next.js UI for chat and uploads.",
+      tech: "Python, FastAPI, Next.js, LangChain, LangGraph, OpenAI, QdrantDB",
+      github: "https://github.com/VedantSalvekar/shaastra-ai-frontend",
+      screenshot: shaastraAi,
+    },
     {
       title: "GitTogether",
       subtitle: "Developer Networking Platform",
