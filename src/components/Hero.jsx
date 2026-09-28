@@ -6,9 +6,10 @@ import firebaseIcon from "../assets/firebase-1.svg";
 import javascriptIcon from "../assets/javascript-2.svg";
 import awsIcon from "../assets/aws-2.svg";
 import dartIcon from "../assets/dart.svg";
+import Activity from "./Activity";
 
 const CV_DRIVE_URL = "1oDyM9zKtaMCZajGuggcNfbFykI05yb1I";
-//https://drive.google.com/file/d/1oDyM9zKtaMCZajGuggcNfbFykI05yb1I/view?usp=sharing
+
 function Hero() {
   const downloadCV = () => {
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
@@ -37,7 +38,12 @@ function Hero() {
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative flex items-center justify-center h-[600px]">
-            <div className="absolute left-[-15px] md:left-[-51px] bottom-67 md:bottom-66 z-0">
+            {/* Activity — behind image; gap controlled in Activity.jsx via SECTION_GAP */}
+            <div className="absolute top-[-20px] left-[-50px] right-0 z-0 px-1 opacity-70 pointer-events-auto">
+              <Activity />
+            </div>
+
+            <div className="absolute left-[-15px] md:left-[-51px] bottom-67 md:bottom-66 z-[1]">
               <h2
                 className="text-4xl md:text-6xl font-bold"
                 style={{
@@ -49,7 +55,7 @@ function Hero() {
               </h2>
             </div>
 
-            <div className="absolute right-[20px] md:right-[55px] bottom-67 md:bottom-66 z-0">
+            <div className="absolute right-[20px] md:right-[55px] bottom-67 md:bottom-66 z-[1]">
               <h2
                 className="text-4xl md:text-6xl font-bold"
                 style={{
@@ -89,10 +95,10 @@ function Hero() {
                 style={{ color: "#8892b0" }}
               >
                 <p>
-                  I'm a software engineer and artist who loves building things
-                  that feel both functional and expressive. I enjoy working
-                  end-to-end, designing clean interfaces, architecting scalable
-                  systems, and bringing ideas to life.
+                  I&apos;m a software engineer and artist who loves building
+                  things that feel both functional and expressive. I enjoy
+                  working end-to-end, designing clean interfaces, architecting
+                  scalable systems, and bringing ideas to life.
                 </p>
                 <p>
                   Outside of coding, I paint nature, portraits, and expressive
@@ -132,52 +138,6 @@ function Hero() {
                 Download CV
               </button>
             </div>
-
-            {/* <div className="flex flex-wrap justify-center md:justify-start gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.link}
-                  target={social.link.startsWith("http") ? "_blank" : "_self"}
-                  rel={
-                    social.link.startsWith("http") ? "noopener noreferrer" : ""
-                  }
-                  className="transition-all duration-300"
-                  style={{ filter: "grayscale(100%) brightness(0.7)" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter =
-                      "grayscale(0%) brightness(1) sepia(1) hue-rotate(140deg) saturate(3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter =
-                      "grayscale(100%) brightness(0.7)";
-                  }}
-                >
-                  {social.icon ? (
-                    <img
-                      src={social.icon}
-                      alt={social.name}
-                      className="w-6 h-6"
-                    />
-                  ) : (
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      style={{ color: "#8892b0" }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                  )}
-                </a>
-              ))}
-            </div> */}
           </div>
         </div>
       </div>
