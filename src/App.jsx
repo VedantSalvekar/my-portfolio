@@ -13,15 +13,15 @@ function App() {
         <Hero />
       </section>
 
-      <section id="work" className="scroll-mt-20">
+      <section id="work" className="scroll-mt-32 xl:scroll-mt-20">
         <Work />
       </section>
 
-      <section id="projects" className="scroll-mt-20">
+      <section id="projects" className="scroll-mt-32 xl:scroll-mt-20">
         <Projects />
       </section>
 
-      <section id="artworks" className="scroll-mt-20">
+      <section id="artworks" className="scroll-mt-32 xl:scroll-mt-20">
         <Artworks />
       </section>
 
