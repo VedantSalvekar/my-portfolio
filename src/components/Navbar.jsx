@@ -5,6 +5,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CodeIcon from "@mui/icons-material/Code";
 import PhoneIcon from "@mui/icons-material/Phone";
 
+const CV_DRIVE_ID = "1oDyM9zKtaMCZajGuggcNfbFykI05yb1I";
+
 const navItems = [
   { id: "home", label: "Home" },
   { id: "work", label: "Experience" },
@@ -25,18 +27,6 @@ function Navbar() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const downloadCV = () => {
-    const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
-
-    const link = document.createElement("a");
-    link.href = downloadUrl;
-    link.download = "Vedant_Salvekar_Resume.pdf";
-    link.target = "_blank";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   useEffect(() => {
@@ -71,14 +61,14 @@ function Navbar() {
         // borderColor: "#233554",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-8">
-            <div className="text-xl font-bold" style={{ color: "#ccd6f6" }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 xl:py-4">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-2 xl:flex xl:justify-between">
+          <div className="min-w-0 flex items-center gap-6">
+            <div className="text-base sm:text-xl font-bold" style={{ color: "#ccd6f6" }}>
               Vedant Salvekar
             </div>
 
-            <div className="hidden md:flex items-center gap-1 poi">
+            <div className="hidden xl:flex items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -106,107 +96,115 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button
-                onClick={downloadCV}
-                className="px-6 py-1 border text-sm transition-all duration-300 cursor-pointer"
-                style={{ borderColor: "#64ffda", color: "#64ffda" }}
+          <div className="contents xl:flex xl:items-center xl:gap-3">
+            <a
+              href={`https://drive.google.com/uc?export=download&id=${CV_DRIVE_ID}`}
+              download="Vedant_Salvekar_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 shrink-0 items-center justify-center whitespace-nowrap px-3 sm:px-4 border text-xs sm:text-sm transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#64ffda]"
+              style={{ borderColor: "#64ffda", color: "#64ffda" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#64ffda1a";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
+            >
+              Download CV
+            </a>
+            <div className="col-span-2 flex flex-wrap items-center justify-center gap-1 sm:justify-end">
+              <a
+                href="mailto:vedantsalvekar86@gmail.com"
+                aria-label="Email Vedant"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center transition-all duration-200"
+                style={{ color: "#8892b0" }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#64ffda1a";
+                  e.currentTarget.style.color = "#64ffda";
+                  e.currentTarget.style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.color = "#8892b0";
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
-                Download CV
-              </button>
+                <EmailRoundedIcon style={{ fontSize: 20 }} />
+              </a>
+
+              <a
+                href="https://github.com/VedantSalvekar"
+                aria-label="GitHub profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center transition-all duration-200"
+                style={{ color: "#8892b0" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#64ffda";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "#8892b0";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <GitHubIcon style={{ fontSize: 19 }} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/vedant-salvekar-7b4a5b211/"
+                aria-label="LinkedIn profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center transition-all duration-200"
+                style={{ color: "#8892b0" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#64ffda";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "#8892b0";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <LinkedInIcon style={{ fontSize: 21 }} />
+              </a>
+
+              <a
+                href="https://leetcode.com/u/Vedant_1028/"
+                aria-label="LeetCode profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center transition-all duration-200"
+                style={{ color: "#8892b0" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#64ffda";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "#8892b0";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <CodeIcon style={{ fontSize: 20 }} />
+              </a>
+
+              <a
+                href="tel:+353899444772"
+                aria-label="Call Vedant"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center transition-all duration-200"
+                style={{ color: "#8892b0" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#64ffda";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "#8892b0";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                <PhoneIcon style={{ fontSize: 20 }} />
+              </a>
             </div>
-            <a
-              href="mailto:vedantsalvekar86@gmail.com"
-              className="transition-all duration-200 p-2"
-              style={{ color: "#8892b0" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#64ffda";
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#8892b0";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <EmailRoundedIcon style={{ fontSize: 20 }} />
-            </a>
-
-            <a
-              href="https://github.com/VedantSalvekar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-200 p-2"
-              style={{ color: "#8892b0" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#64ffda";
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#8892b0";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <GitHubIcon style={{ fontSize: 19 }} />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/vedant-salvekar-7b4a5b211/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-200 p-2"
-              style={{ color: "#8892b0" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#64ffda";
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#8892b0";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <LinkedInIcon style={{ fontSize: 21 }} />
-            </a>
-
-            <a
-              href="https://leetcode.com/u/Vedant_1028/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-all duration-200 p-2"
-              style={{ color: "#8892b0" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#64ffda";
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#8892b0";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <CodeIcon style={{ fontSize: 20 }} />
-            </a>
-
-            <a
-              href="tel:+353899444772"
-              className="transition-all duration-200 p-2"
-              style={{ color: "#8892b0" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#64ffda";
-                e.currentTarget.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#8892b0";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <PhoneIcon style={{ fontSize: 20 }} />
-            </a>
           </div>
         </div>
       </div>

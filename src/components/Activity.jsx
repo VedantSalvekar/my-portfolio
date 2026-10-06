@@ -34,7 +34,7 @@ function dateKey(date) {
   return date.toISOString().slice(0, 10);
 }
 
-/** Build last ~16 weeks of LeetCode submission days as a week×day grid (UTC). */
+/** Build LeetCode submission days as a week×day grid (UTC). */
 function buildLeetcodeWeeks(calendar, weeksCount = 54) {
   const map = calendar ?? {};
   const now = new Date();
@@ -145,8 +145,8 @@ function Activity() {
 
   return (
     <div
-      className="text-left w-full flex flex-col pt-1"
-      style={{ gap: SECTION_GAP }}
+      className="text-left w-full min-w-0 flex flex-col gap-8 md:gap-[var(--activity-section-gap)] pt-1"
+      style={{ "--activity-section-gap": SECTION_GAP }}
     >
       {/* GitHub — top */}
       <div>
@@ -186,7 +186,7 @@ function Activity() {
         )}
 
         {!loading && groups.length > 0 && (
-          <div className="relative pl-6 space-y-4">
+          <div className="relative pl-5 space-y-4">
             <div
               className="absolute left-[5px] top-1 bottom-1 w-px"
               style={{ backgroundColor: "#233554" }}
@@ -219,8 +219,8 @@ function Activity() {
 
                   {repoEntries.map(([repoFull, repoCommits]) => (
                     <div key={repoFull} className="mb-2 last:mb-0">
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0">
+                      <div className="flex items-start justify-between gap-2 sm:gap-3">
+                        <div className="min-w-0 flex-1">
                           <p className="text-xs" style={{ color: "#ccd6f6" }}>
                             Created {repoCommits.length} commit
                             {repoCommits.length === 1 ? "" : "s"} in 1
@@ -230,7 +230,7 @@ function Activity() {
                             href={`https://github.com/${repoFull}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs transition-colors truncate block"
+                            className="text-xs transition-colors break-words md:truncate block"
                             style={{ color: "#64ffda" }}
                           >
                             {repoFull}
@@ -239,13 +239,13 @@ function Activity() {
                             href={repoCommits[0].url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[11px] mt-1 block truncate transition-opacity hover:opacity-80"
+                            className="text-[11px] mt-1 block break-words md:truncate transition-opacity hover:opacity-80"
                             style={{ color: "#8892b0" }}
                           >
                             {repoCommits[0].message}
                           </a>
                         </div>
-                        <div className="flex items-center gap-2 shrink-0 pt-0.5">
+                        <div className="flex items-center gap-2 shrink-0 whitespace-nowrap pt-0.5">
                           <span
                             className="text-[10px]"
                             style={{ color: "#8892b0" }}
@@ -290,16 +290,21 @@ function Activity() {
             Profile
           </a>
         </div>
-        <div className="overflow-x-auto">
+        <div className="w-full min-w-0 md:overflow-x-auto">
           {loading ? (
             <div
               className="h-14 w-full animate-pulse"
               style={{ backgroundColor: "#112240" }}
             />
           ) : (
-            <div className="inline-flex gap-0.5">
+            <div
+              className="grid w-full gap-0.5 md:inline-flex md:w-auto"
+              style={{
+                gridTemplateColumns: `repeat(${weeks.length}, minmax(0, 1fr))`,
+              }}
+            >
               {weeks.map((week, wi) => (
-                <div key={wi} className="flex flex-col gap-0.5">
+                <div key={wi} className="min-w-0 flex flex-col gap-0.5">
                   {week.map((day) => (
                     <div
                       key={day.date}
@@ -308,7 +313,7 @@ function Activity() {
                           ? ""
                           : `${day.date}: ${day.count} submission${day.count === 1 ? "" : "s"}`
                       }
-                      className="w-2.5 h-2.5"
+                      className="w-full aspect-square md:w-2.5 md:h-2.5"
                       style={{
                         backgroundColor: day.future
                           ? "transparent"
