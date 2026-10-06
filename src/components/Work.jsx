@@ -6,39 +6,37 @@ function Work() {
 
   const experiences = [
     {
-      company: "GIGIFY",
+      company: "GIGIFY - UCC IGNITE PROGRAMME",
       location: "Cork, Ireland",
-      role: "Full-Stack Developer",
-      period: "DEC 2024 - SEPT 2025",
+      role: "Software Engineer",
+      period: "Dec 2024 - Dec 2025",
       highlights: [
-        "Architected and deployed 10+ serverless Firebase Cloud Functions handling gig lifecycle management (creation, acceptance, cancellation), reducing booking coordination time by 70% through automated workflows with Firestore transactions, conflict detection, and real-time FCM/SMS notifications",
-        "Engineered automated invoice generation system using Puppeteer and Handlebars, dynamically generating VAT-compliant PDF invoices and delivering them via Nodemailer, eliminating manual billing processes and ensuring regulatory compliance for 100% of confirmed gigs",
-        "Resolved critical frontend bugs in React/Next.js calendar, booking, and authentication flows",
-        "Optimized Firestore database performance by implementing composite indexes, server-side caching, and chunked batch operations to bypass query limits, improving read/write performance by 40% across artist and venue dashboards",
-        
+        "Designed and shipped an autonomous, tool-using AI agent (OpenAI, agentic orchestration, Next.js) that plans and executes read-only tool calls across Algolia/Firestore, search, clash detection, and fee calculation, returning ranked results with an auditable, reviewable execution trace before any action is confirmed.",
+        "Worked AI-first across design, implementation, and review, partnering with product and design to translate business requirements into a spec-driven agent design, integrated end-to-end into the venue create-gig flow.",
+        "Built an automated invoice generation pipeline (Puppeteer, Handlebars) producing VAT-compliant PDFs, eliminating a manual billing process.",
+        "Improved Firestore performance by 40% via indexing, caching, and batch operations, while shipping scalable, full-stack React/Next.js features across artist and venue dashboards.",
       ],
     },
     {
       company: "WAJOOBA LLC",
-      location: "Pune, India",
+      location: "India",
       role: "Software Engineer",
-      period: "AUG 2023 - AUG 2024",
+      period: "Aug 2023 - Sep 2024",
       highlights: [
-        "Engineered interactive mental health assessment and CBT activity workflows for children using Node.js APIs, reducing therapist consultation prep time by 40% through structured question flows, real-time scoring, and automated progress tracking",
-        "Developed admin interfaces for psychologists to manage assessment templates, review student responses, and book consultations, decreasing administrative overhead by 35% through automated workflows and data visualization.",
-        "Integrated Razorpay and Stripe payment systems with subscription logic, webhook handlers, and transaction reconciliation for course purchases and memberships",
-        "Designed RESTful APIs for S3-backed video delivery, progress analytics, enabling therapists to track 12+ behavioural metrics per child across CBT modules and activities",
+        "Built secure, scalable RESTful APIs with authentication and validation, integrating Stripe and Razorpay payment systems with subscriptions, webhooks, and transaction reconciliation, applying web security principles throughout.",
+        "Built Node.js-based mental health assessment and CBT workflows, reducing therapist consultation preparation time by 40% through automated scoring and structured, rules-driven flows.",
+        "Engineered cloud-native media delivery services using AWS S3 and API Gateway, enabling secure, low-latency content access at scale.",
+        "Partnered directly with clients and mental health professionals across international markets to translate clinical requirements into production-ready features, delivering 8 major product releases, cutting admin overhead by 35%.",
       ],
     },
     {
       company: "OMUNIM SOFTWARE PVT LTD",
-      location: "Pune, India",
-      role: "Front-End Developer",
-      period: "JAN 2023 - JUNE 2023",
+      location: "India",
+      role: "Software Developer",
+      period: "Jan 2023 - Jul 2023",
       highlights: [
-        "Built browser-based ERP modules by translating core desktop workflows into web interfaces, improving accessibility and user adoption by 30%",
-        "Implemented authentication flows and integrated payment features to support secure access and transactions",
-        "Worked directly with stakeholders to simplify complex ERP processes into intuitive UI flows, reducing user errors and support queries by 25%",
+        "Built browser-based ERP modules by translating core desktop workflows into web interfaces, improving accessibility and user adoption by 30%.",
+        "Implemented authentication flows and integrated payment features to support secure access and transactions.",
       ],
     },
   ];

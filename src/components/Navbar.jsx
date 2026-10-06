@@ -27,6 +27,18 @@ function Navbar() {
     }
   };
 
+  const downloadCV = () => {
+    const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
+
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.download = "Vedant_Salvekar_Resume.pdf";
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,7 +50,7 @@ function Navbar() {
       },
       {
         rootMargin: "-50% 0px -50% 0px",
-      }
+      },
     );
 
     navItems.forEach((item) => {
@@ -95,6 +107,21 @@ function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <button
+                onClick={downloadCV}
+                className="px-6 py-1 border text-sm transition-all duration-300 cursor-pointer"
+                style={{ borderColor: "#64ffda", color: "#64ffda" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#64ffda1a";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                }}
+              >
+                Download CV
+              </button>
+            </div>
             <a
               href="mailto:vedantsalvekar86@gmail.com"
               className="transition-all duration-200 p-2"
@@ -147,7 +174,7 @@ function Navbar() {
               <LinkedInIcon style={{ fontSize: 21 }} />
             </a>
 
-            {/* <a
+            <a
               href="https://leetcode.com/u/Vedant_1028/"
               target="_blank"
               rel="noopener noreferrer"
@@ -163,7 +190,7 @@ function Navbar() {
               }}
             >
               <CodeIcon style={{ fontSize: 20 }} />
-            </a> */}
+            </a>
 
             <a
               href="tel:+353899444772"

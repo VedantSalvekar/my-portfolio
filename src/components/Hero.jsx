@@ -11,17 +11,17 @@ import Activity from "./Activity";
 const CV_DRIVE_URL = "1oDyM9zKtaMCZajGuggcNfbFykI05yb1I";
 
 function Hero() {
-  const downloadCV = () => {
-    const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
+  // const downloadCV = () => {
+  //   const downloadUrl = `https://drive.google.com/uc?export=download&id=${CV_DRIVE_URL}`;
 
-    const link = document.createElement("a");
-    link.href = downloadUrl;
-    link.download = "Vedant_Salvekar_Resume.pdf";
-    link.target = "_blank";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  //   const link = document.createElement("a");
+  //   link.href = downloadUrl;
+  //   link.download = "Vedant_Salvekar_Resume.pdf";
+  //   link.target = "_blank";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
 
   const skills = [
     { name: "React", icon: reactIcon },
@@ -123,7 +123,7 @@ function Hero() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <button
                 onClick={downloadCV}
                 className="px-6 py-2 border text-sm transition-all duration-300 cursor-pointer"
@@ -137,7 +137,7 @@ function Hero() {
               >
                 Download CV
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
